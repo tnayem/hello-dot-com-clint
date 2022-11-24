@@ -28,7 +28,7 @@ const Login = () => {
                     </div>
                     <input className='btn btn-accent w-full' value='Login' type="submit" />
                 </form>
-                <p>New to Hello.com <Link className='text-primary'>Create New Account</Link></p>
+                <p>New to Hello.com <Link to='/signup' className='text-primary'>Create New Account</Link></p>
                 <div className="divider">OR</div>
                 <input className='btn btn-success w-full' value='Login With Google' type="submit" />
             </div>

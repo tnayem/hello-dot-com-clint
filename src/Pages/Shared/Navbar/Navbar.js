@@ -6,6 +6,7 @@ const Navbar = () => {
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/login'>Login</Link></li>
+        <li><Link to='/signup'>SignUp</Link></li>
     </>
     return (
         <div className="navbar bg-base-100">
