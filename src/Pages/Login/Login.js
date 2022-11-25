@@ -2,7 +2,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
@@ -10,6 +10,9 @@ const Login = () => {
     const {googleSignUp,setError,error,signIn}=useContext(AuthContext);
     const GoogleProvider = new GoogleAuthProvider()
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/'
 
     const handleLogIn = data =>{
         console.log(data);
@@ -17,7 +20,8 @@ const Login = () => {
         .then(result=>{
             const user = result.user;
             console.log(user);
-            navigate('/')
+            setError('')
+            navigate(from,{replace: true});
         })
         .catch(error=>{
             console.log(error);
@@ -31,7 +35,7 @@ const Login = () => {
             const user = result.user
             console.log(user);
             setError('')
-            navigate('/')
+            navigate(from,{replace:true})
         })
         .catch(error=>{
             console.log(error)
@@ -55,6 +59,7 @@ const Login = () => {
                         </label>
                         <input {...register("password")} type="password" placeholder="password" className="input input-bordered w-full" />
                     </div>
+                    {error && <p className='text-red-500'>{error}</p>}
                     <input className='btn btn-accent w-full' value='Login' type="submit" />
                 </form>
                 <p>New to Hello.com <Link to='/signup' className='text-primary'>Create New Account</Link></p>

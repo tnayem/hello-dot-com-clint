@@ -8,29 +8,35 @@ const auth = getAuth(app)
 const AuthProvider = ({children}) => {
     //handle error
     const[error,setError] = useState('')
+    //handle loading
+    const[loading,setLoading]=useState(true)
     //set user
     const [user,setUser] = useState(null)
     // Create User
     const createUser=(email,password)=>{
-        console.log(email,password);
+        setLoading(true)
        return createUserWithEmailAndPassword(auth,email,password)
     }
     // create user wirh google
     const googleSignUp = (provider)=>{
+        setLoading(true)
        return signInWithPopup(auth,provider)
     }
     // Sign In Email and Password
     const signIn =(email,password)=>{
+        setLoading(true)
         return signInWithEmailAndPassword(auth,email,password);
     }
     // Sign Out
     const logOut =()=>{
+        setLoading(true)
         return signOut(auth)
     }
     //Auth state change
     useEffect(()=>{
        const unsubscribe = onAuthStateChanged(auth,(currentUser)=>{
             setUser(currentUser)
+            setLoading(false)
         })
         return ()=>{
             unsubscribe()
@@ -43,7 +49,8 @@ const AuthProvider = ({children}) => {
         setError,
         signIn,
         user,
-        logOut
+        logOut,
+        loading
     }
     return (
        <AuthContext.Provider value={authInfo}>

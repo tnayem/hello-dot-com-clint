@@ -7,6 +7,7 @@ import Samsung from "../../Pages/Brand/Samsung/Samsung";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -27,15 +28,15 @@ const router = createBrowserRouter([
             },
             {
                 path:'/samsung',
-                element:<Samsung></Samsung>
+                element:<PrivateRoute><Samsung></Samsung></PrivateRoute>
             },
             {
                 path:'/oppo',
-                element:<Oppo></Oppo>
+                element:<PrivateRoute><Oppo></Oppo></PrivateRoute>
             },
             {
                 path:'/realme',
-                element:<Realme></Realme>
+                element:<PrivateRoute><Realme></Realme></PrivateRoute>
             },
             {
                 path:'/blog',
