@@ -11,7 +11,7 @@ const Realme = () => {
     })
     return (
         <div>
-            <h2>Chose Your Best Phone From Realme Gallery</h2>
+            <h2 className='text-3xl text-center my-12'>Chose Your Best Phone From <span className='text-orange-300'>Realme</span> Gallery</h2>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
                 {
                     realmePhones?.map(realmePhone=><SRealme

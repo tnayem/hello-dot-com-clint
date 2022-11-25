@@ -9,8 +9,11 @@ const SingleSamsung = ({ samsungPhone }) => {
                     <img src={productImg} alt="Shoes" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <h2 className="card-title">{model}</h2>
+                    <h4 className='text-xl'>Market Price: {marketPrice} Tk</h4>
+                    <h4 className='text-xl'>Selling Price: {price} Tk</h4>
+                    <p>Condition: {condition}</p>
+                    <p>{location} </p>
                     <div className="card-actions">
                         <button className="btn btn-primary">Buy Now</button>
                     </div>

@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import Blog from "../../Pages/Blog/Blog";
 import Oppo from "../../Pages/Brand/Oppo/Oppo";
 import Realme from "../../Pages/Brand/Realme/Realme";
 import Samsung from "../../Pages/Brand/Samsung/Samsung";
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path:'/realme',
                 element:<Realme></Realme>
+            },
+            {
+                path:'/blog',
+                element:<Blog></Blog>
             }
         ]
     }

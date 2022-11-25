@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SRealme = ({ realmePhone }) => {
-    const { brand, productImg, model, location, marketPrice, price, condition } = realmePhone;
+const SOppo = ({ oppoPhone }) => {
+    const { brand, productImg, model, location, marketPrice, price, condition } = oppoPhone
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -23,4 +23,4 @@ const SRealme = ({ realmePhone }) => {
     );
 };
 
-export default SRealme;
+export default SOppo;
