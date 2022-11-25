@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import Modal from '../../Modal/Modal';
 import SRealme from './SRealme';
 
 const Realme = () => {

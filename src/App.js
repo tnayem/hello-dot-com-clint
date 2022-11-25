@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { RouterProvider } from 'react-router-dom';
 import router from './Routes/Routes/Routes';
+import Modal from './Pages/Modal/Modal';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <RouterProvider router={router}>
 
       </RouterProvider>
+      <Modal></Modal>
     </div>
   );
 }

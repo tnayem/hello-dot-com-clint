@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const SRealme = ({ realmePhone }) => {
     const { brand, productImg, model, location, marketPrice, price, condition } = realmePhone;
+    const{setPhoneData}=useContext(AuthContext)
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -15,7 +17,7 @@ const SRealme = ({ realmePhone }) => {
                     <p>Condition: {condition}</p>
                     <p>{location} </p>
                     <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
+                    <label  onClick={()=>setPhoneData(realmePhone)} htmlFor="buyNow-modal" className="btn btn-primary">Buy Now</label>
                     </div>
                 </div>
             </div>
