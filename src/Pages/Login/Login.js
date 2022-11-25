@@ -2,16 +2,27 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
-    const {googleSignUp}=useContext(AuthContext);
+    const {googleSignUp,setError,error,signIn}=useContext(AuthContext);
     const GoogleProvider = new GoogleAuthProvider()
+    const navigate = useNavigate();
 
     const handleLogIn = data =>{
         console.log(data);
+        signIn(data.email,data.password)
+        .then(result=>{
+            const user = result.user;
+            console.log(user);
+            navigate('/')
+        })
+        .catch(error=>{
+            console.log(error);
+            setError(error.message)
+        })
     }
     //Google Sign Up
     const handleGoogleSignUp=()=>{
@@ -19,8 +30,13 @@ const Login = () => {
         .then(result=>{
             const user = result.user
             console.log(user);
+            setError('')
+            navigate('/')
         })
-        .catch(error=>console.log(error))
+        .catch(error=>{
+            console.log(error)
+            setError(error.message)
+        })
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>

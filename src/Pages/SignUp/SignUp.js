@@ -1,9 +1,10 @@
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
+    const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm();
     const {createUser} = useContext(AuthContext)
     const handleSignUp = data => {
@@ -11,6 +12,7 @@ const SignUp = () => {
         .then(result=>{
             const user= result.user
             console.log(user);
+            navigate('/')
         })
         .catch(error=>console.log(error))
     }
