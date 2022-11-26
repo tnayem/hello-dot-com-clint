@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const SOppo = ({ oppoPhone }) => {
-    const { brand, productImg, model, location, marketPrice, price, condition } = oppoPhone
+    const { brand, productImg, model, location, marketPrice, price, used } = oppoPhone
     const{setPhoneData}=useContext(AuthContext)
     return (
         <div>
@@ -14,7 +14,7 @@ const SOppo = ({ oppoPhone }) => {
                     <h2 className="card-title">{model}</h2>
                     <h4 className='text-xl'>Market Price: {marketPrice} Tk</h4>
                     <h4 className='text-xl'>Selling Price: {price} Tk</h4>
-                    <p>Condition: {condition}</p>
+                    <p>Used: {used}</p>
                     <p>{location} </p>
                     <div className="card-actions">
                         <label onClick={()=>setPhoneData(oppoPhone)} htmlFor="buyNow-modal" className="btn btn-primary">Buy Now</label>
