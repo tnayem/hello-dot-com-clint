@@ -1,6 +1,6 @@
-import { registerVersion } from 'firebase/app';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast} from 'react-toastify';
 
 const AddProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -9,6 +9,7 @@ const AddProduct = () => {
     let time = showDate.getHours() + ':' + showDate.getMinutes() + ':' + showDate.getSeconds();
     const handleAddData = (data) => {
         console.log(data);
+        toast.success('Your info added successfully')
     }
     return (
         <div className='w-96 mx-auto p-6'>
