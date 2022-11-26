@@ -6,15 +6,16 @@ import { AuthContext } from '../../Context/AuthProvider';
 const SignUp = () => {
     const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const {createUser} = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext)
     const handleSignUp = data => {
-        createUser(data.email,data.password)
-        .then(result=>{
-            const user= result.user
-            console.log(user);
-            navigate('/')
-        })
-        .catch(error=>console.log(error))
+        console.log(data);
+        createUser(data.email, data.password)
+            .then(result => {
+                const user = result.user
+                console.log(user);
+                navigate('/')
+            })
+            .catch(error => console.log(error))
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>
@@ -51,8 +52,27 @@ const SignUp = () => {
                         })} type="password" placeholder="password" className="input input-bordered w-full" />
                         {errors.password && <p className='text-rose-500'>{errors.password.message}</p>}
                     </div>
+                    {/* role section */}
+                    <div className="form-control">
+                        <label className="label cursor-pointer">
+                            <span className="label-text">Admin</span>
+                            <input {...register("role")} value='admin' type="radio" name="radio-10" className="radio checked:bg-red-500" checked />
+                        </label>
+                    </div>
+                    <div className="form-control">
+                        <label className="label cursor-pointer">
+                            <span className="label-text">Seller</span>
+                            <input value='seller' type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
+                        </label>
+                    </div>
+                    <div className="form-control">
+                        <label className="label cursor-pointer">
+                            <span className="label-text">Buyer</span>
+                            <input value='buyer' type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
+                        </label>
+                    </div>
                     {/* submit field */}
-                    <input className='btn btn-accent w-full' value='Login' type="submit" />
+                    <input className='btn btn-accent w-full' value='Sign UP' type="submit" />
                 </form>
                 <div className="divider">OR</div>
                 <p>Already Have an Account Please <Link to='/login' className='text-primary'>Login</Link></p>

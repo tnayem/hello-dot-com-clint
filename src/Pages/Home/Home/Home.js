@@ -1,4 +1,5 @@
 import React from 'react';
+import AddProduct from '../../AddProduct/AddProduct';
 import Catagorys from '../../Catagorys/Catagorys';
 import Banner from '../Banner/Banner';
 

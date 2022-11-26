@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import AddProduct from "../../Pages/AddProduct/AddProduct";
 import Blog from "../../Pages/Blog/Blog";
 import Oppo from "../../Pages/Brand/Oppo/Oppo";
 import Realme from "../../Pages/Brand/Realme/Realme";
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
             {
                 path:'/blog',
                 element:<Blog></Blog>
+            },
+            {
+                path:'/addproduct',
+                element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
             }
         ]
     }
