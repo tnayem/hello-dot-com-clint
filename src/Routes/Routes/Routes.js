@@ -7,6 +7,7 @@ import Realme from "../../Pages/Brand/Realme/Realme";
 import Samsung from "../../Pages/Brand/Samsung/Samsung";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import MyProducts from "../../Pages/MyProducts/MyProducts";
 import SignUp from "../../Pages/SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             {
                 path:'/addproduct',
                 element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+            },
+            {
+                path:'/myproducts',
+                element:<PrivateRoute><MyProducts></MyProducts></PrivateRoute>
             }
         ]
     }

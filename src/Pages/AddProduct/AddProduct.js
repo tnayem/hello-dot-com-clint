@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const AddProduct = () => {
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { user } = useContext(AuthContext)
-    console.log(user);
+    console.log(user.displayName);
     let showDate = new Date();
     let date = showDate.getDay() + '/' + showDate.getMonth() + '/' + showDate.getFullYear()
     let time = showDate.getHours() + ':' + ' ' + showDate.getMinutes()
@@ -41,6 +43,7 @@ const AddProduct = () => {
                 console.log(data)
                 if (data.acknowledged) {
                     toast.success('Your Phone info added successfully')
+                    navigate('/myproducts')
                 }
             })
             .catch(error => console.error(error))
