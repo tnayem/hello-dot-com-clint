@@ -8,7 +8,7 @@ const SOppo = ({ oppoPhone }) => {
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
-                    <img src={productImg} alt="Shoes" className="rounded-xl" />
+                    <img src={productImg} alt="Product" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{model}</h2>
