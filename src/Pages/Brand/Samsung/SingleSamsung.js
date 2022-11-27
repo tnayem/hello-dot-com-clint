@@ -17,7 +17,7 @@ const SingleSamsung = ({ samsungPhone }) => {
                     <p>Used: {used}</p>
                     <p>{location} </p>
                     <div className="card-actions">
-                        <label onClick={()=>setPhoneData(samsungPhone)} htmlFor="buyNow-modal" className="btn btn-primary">Buy Now</label>
+                        <label onClick={()=>setPhoneData(samsungPhone)} htmlFor="buyNow-modal" className="btn btn-primary">Book Now</label>
                     </div>
                 </div>
             </div>

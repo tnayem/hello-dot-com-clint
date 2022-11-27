@@ -17,7 +17,7 @@ const SOppo = ({ oppoPhone }) => {
                     <p>Used: {used}</p>
                     <p>{location} </p>
                     <div className="card-actions">
-                        <label onClick={()=>setPhoneData(oppoPhone)} htmlFor="buyNow-modal" className="btn btn-primary">Buy Now</label>
+                        <label onClick={()=>setPhoneData(oppoPhone)} htmlFor="buyNow-modal" className="btn btn-primary">Book Now</label>
                     </div>
                 </div>
             </div>

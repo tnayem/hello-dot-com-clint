@@ -1,21 +1,31 @@
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
     const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser } = useContext(AuthContext)
+    const { createUser,updateUserProfile } = useContext(AuthContext)
     const handleSignUp = data => {
+        const name = data.name;
         console.log(data);
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user
                 console.log(user);
+                handleUpdateUserProfile(name)
+                toast.success('User Created successfully')
                 navigate('/')
             })
             .catch(error => console.log(error))
+    }
+    const handleUpdateUserProfile=(name)=>{
+        const updateName = {
+            displayName:name
+        }
+        updateUserProfile(updateName)
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>

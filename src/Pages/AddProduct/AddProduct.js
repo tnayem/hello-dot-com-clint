@@ -28,6 +28,7 @@ const AddProduct = () => {
             time: data.time
 
         }
+        
         fetch('http://localhost:5000/phones', {
             method: 'POST',
             headers: {
@@ -43,6 +44,7 @@ const AddProduct = () => {
                 }
             })
             .catch(error => console.error(error))
+            
     }
     return (
         <div className='w-96 mx-auto p-6'>
@@ -51,7 +53,7 @@ const AddProduct = () => {
                 <div className="form-control w-full mb-3">
                     <input {...register("model", {
                         required: 'Name is Required'
-                    })} type="text" placeholder="Product Name" className="input input-bordered w-full" />
+                    })} type="text" placeholder="Product Model Name" className="input input-bordered w-full" />
                     {errors?.model && <p className='text-rose-200'>{errors?.model?.message}</p>}
                 </div>
                 {/* Market Price */}
