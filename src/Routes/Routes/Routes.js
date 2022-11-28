@@ -6,6 +6,7 @@ import Blog from "../../Pages/Blog/Blog";
 import Oppo from "../../Pages/Brand/Oppo/Oppo";
 import Realme from "../../Pages/Brand/Realme/Realme";
 import Samsung from "../../Pages/Brand/Samsung/Samsung";
+import BookingAllData from "../../Pages/Dashboard/BookingAllData/BookingAllData";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/addproduct',
                 element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+            },
+            {
+                path:'/dashboard/bookingAllData',
+                element:<PrivateRoute><BookingAllData></BookingAllData></PrivateRoute>
             }
         ]
     }

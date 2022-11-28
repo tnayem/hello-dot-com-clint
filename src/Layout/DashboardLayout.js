@@ -17,6 +17,7 @@ const DashboardLayout = () => {
                         {/* <!-- Sidebar content here --> */}
                         <li><Link to='/dashboard/myproducts'>My Products</Link></li>
                         <li><Link to='/dashboard/addproduct'>Add To a Product</Link></li>
+                        <li><Link to='/dashboard/bookingAllData'>My Booking Phone</Link></li>
                     </ul>
 
                 </div>

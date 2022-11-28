@@ -11,14 +11,16 @@ const Modal = () => {
         data.email = user.email
         data.model = phoneData.model
         data.price = phoneData.price
+        data.productImg= phoneData?.productImg
         // console.log(data);
         const modalObj = {
             name:data.name,
             email:data.email,
             model:data.model,
-            price:data.price
+            price:data.price,
+            productImg:data.productImg
         }
-        fetch('http://localhost:5000/booking',{
+        fetch('https://hello-dot-com-server.vercel.app/booking',{
             method:'POST',
             headers:{
                 'content-type': 'application/json'
@@ -54,6 +56,10 @@ const Modal = () => {
                             {/* Product Name */}
                             <div className="form-control w-full mb-3">
                                 <input {...register("model")} type="text" value={phoneData?.model} readOnly className="input input-bordered w-full" />
+                            </div>
+                            {/* Product image */}
+                            <div className="form-control w-full mb-3">
+                                <input {...register("productImg")} type="text" value={phoneData?.productImg} readOnly className="input input-bordered w-full" />
                             </div>
                             {/* Product Price */}
                             <div className="form-control w-full mb-3">
