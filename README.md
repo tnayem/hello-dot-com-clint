@@ -9,8 +9,8 @@
 * Navbar, banner, catagory,advertised section, Our Policy and footer
 * Clicking view Phone. You will see catagory wise Phone.
 * If any buyer buy any product. Clicking book now button. Product added my order page.
-* clicking payment button buyer can payment .
-* Seller can added their product. Seller can see added a product page . Any seller can added their product.
+* clicking payment button buyer can successfully payment .
+* clicking add a product seller can added their product
 
 ### `npm start`
 
