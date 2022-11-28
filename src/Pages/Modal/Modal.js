@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Modal = () => {
@@ -10,7 +11,28 @@ const Modal = () => {
         data.email = user.email
         data.model = phoneData.model
         data.price = phoneData.price
-        console.log(data);
+        // console.log(data);
+        const modalObj = {
+            name:data.name,
+            email:data.email,
+            model:data.model,
+            price:data.price
+        }
+        fetch('http://localhost:5000/booking',{
+            method:'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(modalObj)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            if (data.acknowledged) {
+                toast('Congratulation Successfully Booking Your Phone')
+            }
+        })
+        .catch(error => console.error(error))
     }
     
     return (
