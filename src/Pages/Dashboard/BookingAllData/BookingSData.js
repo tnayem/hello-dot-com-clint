@@ -7,7 +7,7 @@ const BookingSData = ({ booking }) => {
     const handleDelateOrder=id=>{
         const proceed = window.confirm('Are you sure you want to cancel this product')
         if(proceed){
-            fetch(`http://localhost:5000/booking/${id}`,{
+            fetch(`https://hello-dot-com-server.vercel.app/booking/${id}`,{
                 method:'DELETE'
             })
             .then(res=>res.json())

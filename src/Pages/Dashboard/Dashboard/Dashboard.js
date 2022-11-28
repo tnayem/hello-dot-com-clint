@@ -1,9 +1,10 @@
 import React from 'react';
+import MyProduct from '../../MyProducts/MyProduct';
 
 const Dashboard = () => {
     return (
         <div>
-            This is Dashboard
+            <h1 className='text-4xl'>Welcome to DashBoard</h1>
         </div>
     );
 };

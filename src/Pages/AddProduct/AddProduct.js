@@ -10,7 +10,7 @@ const AddProduct = () => {
     const { user } = useContext(AuthContext)
     console.log(user.displayName);
     let showDate = new Date();
-    let date = showDate.getDay() + '/' + showDate.getMonth() + '/' + showDate.getFullYear()
+    let date = showDate.getDay() + '/' + (showDate.getMonth()+1) + '/' + showDate.getFullYear()
     let time = showDate.getHours() + ':' + ' ' + showDate.getMinutes()
     const handleAddData = (data) => {
         console.log(data);
@@ -27,7 +27,8 @@ const AddProduct = () => {
             used: data.used,
             productImg: data.productImg,
             date: data.date,
-            time: data.time
+            time: data.time,
+            seller:data.seller
 
         }
         
@@ -43,7 +44,7 @@ const AddProduct = () => {
                 console.log(data)
                 if (data.acknowledged) {
                     toast.success('Your Phone info added successfully')
-                    navigate('/dashboard/addproduct')
+                    navigate('/dashboard/myproducts')
                 }
             })
             .catch(error => console.error(error))
@@ -53,6 +54,12 @@ const AddProduct = () => {
         <div className='w-96 mx-auto p-6'>
             <form onSubmit={handleSubmit(handleAddData)}>
                 {/* Product Name */}
+                <div className="form-control w-full mb-3">
+                    <input {...register("seller", {
+                        required: 'Name is Required'
+                    })} type="text" placeholder="Your Name" className="input input-bordered w-full" />
+                    {errors?.model && <p className='text-rose-200'>{errors?.model?.message}</p>}
+                </div>
                 <div className="form-control w-full mb-3">
                     <input {...register("model", {
                         required: 'Name is Required'

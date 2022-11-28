@@ -15,9 +15,6 @@ const Navbar = () => {
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/dashboard'>Dashboard</Link></li>
         {
-            user?.uid && <li><Link to='/addproduct'>Add To a Product</Link></li>
-        }
-        {
             user?.uid ? <li onClick={handleSignOut}><Link to='/'>LogOut</Link></li>
                 :
                 <li><Link to='/login'>Login</Link></li>
