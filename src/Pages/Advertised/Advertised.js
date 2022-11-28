@@ -3,7 +3,7 @@ import React from 'react';
 import SAdvertised from './SAdvertised';
 
 const Advertised = () => {
-    const url = 'http://localhost:5000/advertised'
+    const url = 'https://hello-dot-com-server.vercel.app/advertised'
     const { data: advertises = [] } = useQuery({
         queryKey: ['advertises'],
         queryFn: () => fetch(url)

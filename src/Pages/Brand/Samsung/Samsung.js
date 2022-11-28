@@ -3,7 +3,7 @@ import React from 'react';
 import SingleSamsung from './SingleSamsung';
 
 const Samsung = () => {
-    const url = 'http://localhost:5000/phones?brand=samsung'
+    const url = 'https://hello-dot-com-server.vercel.app/phones?brand=samsung'
     const { data: samsungPhones = [] } = useQuery({
         queryKey: ['samsungPhones'],
         queryFn: () => fetch(url)

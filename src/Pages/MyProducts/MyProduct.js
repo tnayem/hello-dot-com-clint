@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const MyProduct = ({ myProduct }) => {
-    const { brand, productImg, model, location, marketPrice, price, used, date, time, condition, description,email,mobileNumber } = myProduct
+    const { brand, productImg, model, location, marketPrice, price, used, date, time, condition, description, email, mobileNumber } = myProduct
     const { user } = useContext(AuthContext)
     const handleAdvertisePhone = (product) => {
         console.log(product);
@@ -23,25 +23,25 @@ const MyProduct = ({ myProduct }) => {
             description
 
         }
-        fetch('http://localhost:5000/advertised',{
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
+        fetch('https://hello-dot-com-server.vercel.app/advertised', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
             },
-            body:JSON.stringify(adObj)
+            body: JSON.stringify(adObj)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            if(data.acknowledged){
-                toast('This Phone Successfully Added Advertise Section')
-            }
-        })
-        .catch(error=>console.error(error))
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    toast('This Phone Successfully Added Advertise Section')
+                }
+            })
+            .catch(error => console.error(error))
     }
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            {/* <div className="card w-96 bg-base-100 shadow-xl">
                 <figure><img src={productImg} alt="Product Image" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{model}</h2>
@@ -61,6 +61,21 @@ const MyProduct = ({ myProduct }) => {
                         <p><span className='font-semibold'>Time:</span> {time}</p>
                     </div>
                     <div className="card-actions justify-end">
+                        <button onClick={() => handleAdvertisePhone(myProduct)} className="btn btn-primary">Advertised</button>
+                    </div>
+                </div>
+            </div> */}
+            <div className="card max-w-72 bg-base-100 shadow-xl image-full max-h-60">
+                <figure><img src={productImg} alt="Shoes" /></figure>
+                <div className="card-body">
+                    <h2 className="card-title">{model}</h2>
+                    <div className='flex'>
+                        <p><span className='font-semibold'>Market Price:</span> {marketPrice} Tk</p>
+                        <p><span className='font-semibold'>Selling Price:</span> {price} Tk</p>
+                    </div>
+                    <p>Sells Status:</p>
+                    <div className="card-actions justify-between">
+                        <button className='btn btn-error'>Delate</button>
                         <button onClick={() => handleAdvertisePhone(myProduct)} className="btn btn-primary">Advertised</button>
                     </div>
                 </div>

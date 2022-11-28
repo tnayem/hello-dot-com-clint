@@ -5,7 +5,7 @@ const Catagorys = () => {
     // const[catagorys,setCatagorys] = useState([])
     const { data: catagorys = [] } = useQuery({
         queryKey: ['catagorys'],
-        queryFn: () => fetch('http://localhost:5000/catagory')
+        queryFn: () => fetch('https://hello-dot-com-server.vercel.app/catagory')
             .then(res => res.json())
     })
     return (

@@ -3,10 +3,10 @@ import { AuthContext } from '../../Context/AuthProvider';
 
 const SAdvertised = ({advertise}) => {
     const {brand, productImg, model, location, marketPrice, price, used, date, time, condition, description,email,mobileNumber}=advertise
-    const {user}=useContext(AuthContext)
+    const {user,setPhoneData}=useContext(AuthContext)
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-xl max-h-[700px]">
                 <figure><img src={productImg} alt="Product Image" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{model}</h2>
@@ -18,15 +18,15 @@ const SAdvertised = ({advertise}) => {
                         <p><span className='font-semibold'>Used:</span> {used}</p>
                         <p><span className='font-semibold'>Condition:</span> {condition}</p>
                     </div>
-                    <p><span className='font-semibold'>More Info:</span> {description}</p>
-                    <p><span className='font-semibold'>Seller Name:</span> {user.displayName}</p>
+                    <p title={description}><span className='font-semibold'>More Info:...</span></p>
+                    <p><span className='font-semibold'>Seller Name:</span> {user?.displayName}</p>
                     <p><span className='font-semibold'>Location:</span> {location} </p>
                     <div className='flex'>
                         <p><span className='font-semibold'>Uploded:</span> {date} </p>
                         <p><span className='font-semibold'>Time:</span> {time}</p>
                     </div>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Book Now</button>
+                    <div className="card-actions">
+                        <label onClick={()=>setPhoneData(advertise)} htmlFor="buyNow-modal" className="btn btn-primary">Book Now</label>
                     </div>
                 </div>
             </div>

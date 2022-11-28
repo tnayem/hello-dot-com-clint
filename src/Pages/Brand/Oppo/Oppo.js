@@ -3,7 +3,7 @@ import React from 'react';
 import SOppo from './SOppo';
 
 const Oppo = () => {
-    const url = 'http://localhost:5000/phones?brand=oppo'
+    const url = 'https://hello-dot-com-server.vercel.app/phones?brand=oppo'
     const { data: oppoPhones = [] } = useQuery({
         queryKey: ['oppoPhones'],
         queryFn: () => fetch(url)

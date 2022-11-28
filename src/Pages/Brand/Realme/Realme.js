@@ -4,7 +4,7 @@ import Modal from '../../Modal/Modal';
 import SRealme from './SRealme';
 
 const Realme = () => {
-    const url = 'http://localhost:5000/phones?brand=realme'
+    const url = 'https://hello-dot-com-server.vercel.app/phones?brand=realme'
     const { data: realmePhones = [] } = useQuery({
         queryKey: ['realmePhones'],
         queryFn: () => fetch(url)

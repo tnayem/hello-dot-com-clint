@@ -31,7 +31,7 @@ const AddProduct = () => {
 
         }
         
-        fetch('http://localhost:5000/phones', {
+        fetch('https://hello-dot-com-server.vercel.app/phones', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -43,7 +43,7 @@ const AddProduct = () => {
                 console.log(data)
                 if (data.acknowledged) {
                     toast.success('Your Phone info added successfully')
-                    navigate('/myproducts')
+                    navigate('/dashboard/addproduct')
                 }
             })
             .catch(error => console.error(error))
