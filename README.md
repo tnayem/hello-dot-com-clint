@@ -1,10 +1,16 @@
-# Getting Started with Create React App
+# Website Name:Hello Dot Com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Website Live Link [Dream It](https://hello-dot.web.app/)
 
-## Available Scripts
-
-In the project directory, you can run:
+## My website Fetures:
+* My website is used Mobile resale market place.
+* In this website i used tailwind css, daisyui component library,react,mongodb,express,node.js
+* Home page devided 5 section.
+* Navbar, banner, catagory,advertised section, Our Policy and footer
+* Clicking view Phone. You will see catagory wise Phone.
+* If any buyer buy any product. Clicking book now button. Product added my order page.
+* clicking payment button buyer can successfully payment .
+* clicking add a product seller can added their product
 
 ### `npm start`
 
