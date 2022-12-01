@@ -31,6 +31,7 @@ const DashboardLayout = () => {
                         {
                             !isSeller && !isAdmin && <li><Link to='/dashboard/bookingAllData'>My Booking Phone</Link></li>
                         }
+                        {/* admin url */}
                         {
                             isAdmin && <>
                                 <li><Link to='/dashboard/allUsers'>All Users</Link></li>
