@@ -1,8 +1,8 @@
-# Email:nayem@gmail.com
-# password:aaaaaaaa
 # Website Name:Hello Dot Com
+adminEmail: <nayem@gmail.com>
+adminPassword: <aaaaaaaa>
 
-## Website Live Link [Dream It](https://hello-dot.web.app/)
+## Website Live Link [hello.com](https://hello-dot.web.app/)
 
 ## My website Fetures:
 * My website is used Mobile resale market place.
