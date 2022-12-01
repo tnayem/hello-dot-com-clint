@@ -45,7 +45,7 @@ const AllUsers = () => {
                             <td>{alluserInfo.displayName}</td>
                             <td>{alluserInfo.email}</td>
                             <td>{alluserInfo.role}</td>
-                            <td><button onClick={()=>handleDelate(alluserInfo._id)} className='btn btn-sm btn-error text-white'>Delete</button></td>
+                            <td><button disabled={alluserInfo?.role==='admin'} onClick={()=>handleDelate(alluserInfo._id)} className='btn btn-sm btn-error text-white'>Delete</button></td>
                         </tr>)
                     }
                 </tbody>
