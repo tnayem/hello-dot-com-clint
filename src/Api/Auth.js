@@ -5,7 +5,7 @@ export const setAuthToken = user =>{
         displayName:user?.displayName,
         role:user?.role
     }
-    // Save user info in database
+    // Save user info in database 
     fetch(`https://hello-dot-com-server.vercel.app/user/${user?.email}`,{
         method:'PUT',
         headers:{
