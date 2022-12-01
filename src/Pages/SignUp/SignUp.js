@@ -2,28 +2,30 @@ import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { setAuthToken } from '../../Api/Auth';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
     const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser,updateUserProfile } = useContext(AuthContext)
+    const { createUser, updateUserProfile } = useContext(AuthContext)
     const handleSignUp = data => {
         const name = data.name;
         console.log(data);
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user
-                console.log(user);
+                console.log(user.email);
                 handleUpdateUserProfile(name)
                 toast.success('User Created successfully')
+                setAuthToken({ email: data.email, displayName: data.name, role: data.role })
                 navigate('/')
             })
             .catch(error => console.log(error))
     }
-    const handleUpdateUserProfile=(name)=>{
+    const handleUpdateUserProfile = (name) => {
         const updateName = {
-            displayName:name
+            displayName: name
         }
         updateUserProfile(updateName)
     }
@@ -63,24 +65,18 @@ const SignUp = () => {
                         {errors.password && <p className='text-rose-500'>{errors.password.message}</p>}
                     </div>
                     {/* role section */}
-                    <div className="form-control">
-                        <label className="label cursor-pointer">
-                            <span className="label-text">Admin</span>
-                            <input {...register("role")} value='admin' type="radio" name="radio-10" className="radio checked:bg-red-500" checked />
+                    <div>
+                        <label className="label">
+                            <span className="label-text">Select Role</span>
                         </label>
+                        <select {...register("role")} className='input input-bordered w-full mb-3'>
+                            <option value="buyer">Buyer</option>
+                            <option value="seller">Seller</option>
+                        </select>
                     </div>
-                    <div className="form-control">
-                        <label className="label cursor-pointer">
-                            <span className="label-text">Seller</span>
-                            <input value='seller' type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
-                        </label>
-                    </div>
-                    <div className="form-control">
-                        <label className="label cursor-pointer">
-                            <span className="label-text">Buyer</span>
-                            <input value='buyer' type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
-                        </label>
-                    </div>
+
+
+
                     {/* submit field */}
                     <input className='btn btn-accent w-full' value='Sign UP' type="submit" />
                 </form>

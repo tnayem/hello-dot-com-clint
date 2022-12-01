@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { setAuthToken } from '../../Api/Auth';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
@@ -23,6 +24,8 @@ const Login = () => {
             console.log(user);
             toast.success('Login Successfully')
             setError('')
+            // get token
+            setAuthToken(user)
             navigate(from,{replace: true});
             
         })
@@ -39,6 +42,7 @@ const Login = () => {
             console.log(user);
             toast.success('Google Login Successfully')
             setError('')
+            setAuthToken(user)
             navigate(from,{replace:true})
         })
         .catch(error=>{

@@ -32,6 +32,7 @@ const AuthProvider = ({children}) => {
     // Sign Out
     const logOut =()=>{
         setLoading(true)
+        localStorage.removeItem('hello-token')
         return signOut(auth)
     }
     //update profile
@@ -41,6 +42,7 @@ const AuthProvider = ({children}) => {
     //Auth state change
     useEffect(()=>{
        const unsubscribe = onAuthStateChanged(auth,(currentUser)=>{
+        console.log(currentUser);
             setUser(currentUser)
             setLoading(false)
         })

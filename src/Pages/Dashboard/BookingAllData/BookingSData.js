@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const BookingSData = ({ booking }) => {
+const BookingSData = ({ booking,refetch }) => {
     console.log(booking);
     const { name, email, model, price, productImg,_id } = booking
     const handleDelateOrder=id=>{
@@ -15,6 +15,7 @@ const BookingSData = ({ booking }) => {
                 if(data.acknowledged){
                     console.log(data);
                     toast("Your ORder Cancelled Successfull")
+                    refetch()
                 }
                 
             })

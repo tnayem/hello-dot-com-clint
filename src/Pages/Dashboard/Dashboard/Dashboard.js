@@ -1,5 +1,4 @@
 import React from 'react';
-import MyProduct from '../../MyProducts/MyProduct';
 
 const Dashboard = () => {
     return (

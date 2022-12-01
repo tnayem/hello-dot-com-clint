@@ -6,7 +6,7 @@ import BookingSData from './BookingSData';
 const BookingAllData = () => {
     const { user } = useContext(AuthContext)
     const url = `https://hello-dot-com-server.vercel.app/booking?email=${user?.email}`
-    const { data: bookings = [] } = useQuery({
+    const { data: bookings = [],refetch } = useQuery({
         queryKey: ['bookings'],
         queryFn: () => fetch(url)
             .then(res => res.json())
@@ -19,6 +19,7 @@ const BookingAllData = () => {
                     bookings?.map(booking => <BookingSData
                         key={booking._id}
                         booking={booking}
+                        refetch={refetch}
                     ></BookingSData>)
                 }
             </div>
