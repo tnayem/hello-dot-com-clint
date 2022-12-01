@@ -1,6 +1,6 @@
 # Website Name:Hello Dot Com
 adminEmail: <nayem@gmail.com>
-adminPassword: <aaaaaaaa>
+adminPassword: <'aaaaaaaa'>
 
 ## Website Live Link [hello.com](https://hello-dot.web.app/)
 
